@@ -1,0 +1,28 @@
+header {
+    grid-area: header;
+    display: flex;
+    flex-direction: row;
+
+    .logo {
+        a {
+            img {
+                height: 300px;
+                width: 300px;
+            }
+        }
+    }
+
+    .menu {
+        .container-fluid {
+            .collapse {
+                .navbar-nav {
+                    .nav-item {
+                        a {
+                            color: $colorLetra;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

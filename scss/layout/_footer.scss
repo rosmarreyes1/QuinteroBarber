@@ -1,0 +1,11 @@
+footer{
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .footerContainer{
+        display: flex;
+        flex-direction: row;
+    }
+}

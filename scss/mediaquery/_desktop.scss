@@ -1,0 +1,31 @@
+/* desktop */
+@include responsive(desktop) {
+    /*productos */
+    .mainProductos{
+        h1{
+            width: 100%;
+        }
+        .galeriaProductos{
+            @include flexBase(row);
+            article{
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+    /*galeria */
+    .mainGaleria{
+        h1{
+            width: 100%;
+        }
+        .galeria{
+            @include flexBase(row);
+            article{
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

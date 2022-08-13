@@ -1,0 +1,17 @@
+$breakpoints: (
+    tablet:768px,
+    desktop:1024px,
+);
+
+
+@mixin responsive($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        $valor: map-get($breakpoints, $breakpoint);
+
+        @media screen and (min-width: $valor) {
+            @content;
+        }
+    }
+
+    @warn "Unknown '#{$breakpoint}' in $breakpoints";
+}

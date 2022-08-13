@@ -1,0 +1,9 @@
+@mixin flexBase ($direction) {
+    display: flex;
+    flex-direction: $direction;
+}
+
+@mixin FlexAlineacion {
+    justify-content: center;
+    align-items: center;
+}

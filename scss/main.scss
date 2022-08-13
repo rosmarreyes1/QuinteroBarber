@@ -1,0 +1,19 @@
+@import "base/reset";
+@import "base/variables";
+@import "base/map";
+@import "base/mixins";
+
+@import "layout/body";
+@import "layout/header";
+@import "layout/mainContainer";
+@import "layout/footer";
+
+
+@import "views/inicio";
+@import "views/galeria";
+@import "views/productos";
+@import "views/nosotros";
+
+
+@import "mediaquery/tablet";
+@import "mediaquery/desktop";

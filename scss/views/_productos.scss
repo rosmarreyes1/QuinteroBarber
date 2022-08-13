@@ -1,0 +1,15 @@
+.mainProductos{
+    @include flexBase(column);
+    @include FlexAlineacion;
+    h1{
+        width: 80%;
+    }
+    .galeriaProductos{
+        article{
+            padding: 1rem;
+            img{
+                width: 80%;
+            }
+        }
+    }
+}
