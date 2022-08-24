@@ -1,7 +1,10 @@
-let usuario = prompt("Ingrese su nombre");
 
+let UsuariosQueIngresaron =[];
+let usuario = prompt("Ingrese su nombre");
 function bienvenidaUsuario() {
-    alert("Bienvenido a Quintero Barber " + usuario + ", " + "acontinuacion le indicaremos los horarios disponibles para realizar su reserva");
+    UsuariosQueIngresaron.push(usuario)
+    console.log(UsuariosQueIngresaron);
+    alert("Bienvenido a Quintero Barber " + UsuariosQueIngresaron + ", " + "acontinuacion le indicaremos los horarios disponibles para realizar su reserva");
 }
 
 function reserva() {
@@ -24,7 +27,7 @@ function reserva() {
         }
     }if (dia === ESC) {
         alert("usted ha salido de la seccion de reserva");
-    }
+    } 
 }
 
 bienvenidaUsuario();
