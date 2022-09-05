@@ -8,7 +8,7 @@ class BienvenidaUsuarios {
         this.apellido= apellido;
     };
     
-    bienvenida() {
+    bienvenida() { 
         alert("Bienvenido a Quintero Barber " + UsuariosQueIngresaron + ", " + "acontinuacion le indicaremos los horarios disponibles para realizar su reserva");
         UsuariosQueIngresaron.push(this.nombre, this.apellido);
         console.log(UsuariosQueIngresaron);
