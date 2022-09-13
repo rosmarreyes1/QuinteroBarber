@@ -1,23 +1,89 @@
+// array de objetos con horarios disponibles
+let horarios = [{
+        dia: 'lunes',
+        hora: "15:00hs"
+    },
+    {
+        dia: 'martes',
+        hora: "9:00hs"
+    },
+    {
+        dia: 'miercoles',
+        hora: "13:00hs"
+    },
+    {
+        dia: 'jueves',
+        hora: "10:00hs"
+    },
+    {
+        dia: 'viernes',
+        hora: "11:00hs"
+    },
+    {
+        dia: 'sabado',
+        hora: "18:00hs"
+    },
+];
+let reserva = []
+// ingreso de usuario y bienvenida //
 function ingresoUsuario() {
+
+    /* boton de ingreso de nombre */
     let boton = document.getElementById("botonIngresar");
+
     boton.onclick = () => {
+        /* input para recibir nombre de usuario */
         let nombre = document.getElementById("nombreUsuario");
         let bienvenida = document.getElementById("contenedor");
+
+        /* restriccion para que no pueda avanzar sin colocar su nombre */
         if (nombre.value !== "") {
             console.log(nombre.value);
+
+            /* bienvenida de usuario */
             let parrafo = document.createElement("p");
-            parrafo.innerText = ("Bienvenido/a a la seccion de Reservas de Quintero Barber, " + nombre.value);
+            parrafo.innerText = (`Bienvenido/a a la seccion de Reservas de Quintero Barber,  ${nombre.value}`);
             bienvenida.append(parrafo);
-            let opcion = document.createElement("p");
-            opcion.innerText = ("Indique si desea reservar por DIA o por HORA segun nuestros turnos disponibles");
+
+            /* solicitud de info para realizar el filtrado de informacion */
+            let opcion = document.createElement("section");
+            opcion.innerHTML = (`<p>Indique si desea reservar por DIA o por HORA segun nuestros horarios disponibles</p>
+            <input type='text' id='inputFiltro'>
+            <button id='botonFiltrado'>Siguiente</button>
+            `);
             bienvenida.append(opcion);
-            let botonDia = document.createElement("button");
-            botonDia.innerHTML = "<button id='ingresoPorDia'>RESERVAR POR DIA</button>";
-            bienvenida.append(botonDia);
-            let botonHora = document.createElement("button");
-            botonHora.innerHTML = "<button id='ingresoPorHora'>RESERVAR POR HORA</button>";
-            bienvenida.append(botonHora);
-            ingresoPorDia();
+
+            let botonSiguiente = document.getElementById("botonFiltrado");
+            let filtro = document.getElementById('inputFiltro');
+            botonSiguiente.onclick = () => {
+                console.log(filtro.value)
+                if (inputFiltro.value.toUpperCase() === "DIA") {
+                    let parrafoDia = document.createElement("article");
+                    parrafoDia.innerHTML = (`
+                    <p>los dias disponibles son: ${horarios.map(el => el.dia)} indique que dia desea asistir</p>
+                    <input type='text' id='inputDia'>
+                    <button id='botonFiltradoDia'>Siguiente</button>
+                    `);
+                    bienvenida.append(parrafoDia);
+                    let reservaPorDia = document.getElementById('inputDia')
+                    let botonFiltro = document.getElementById('botonFiltradoDia');
+                    botonFiltro.onclick = () => {
+                        reserva.push([{
+                            ...horarios.find(elemento => elemento.dia === reservaPorDia.value.toLowerCase()),
+                            nombreReserva: nombre.value
+                        }])
+                        const [{
+                            dia,
+                            hora
+                        }] = horarios
+                        let reservaFinal = document.createElement("p");
+                        reservaFinal.innerHTML = (`${nombre.value}, Hemos agendado su reserva, para el dia ${dia} a las ${hora}`);
+                        bienvenida.append(reservaFinal);
+                        localStorage.setItem('reserva', JSON.stringify(reserva))
+                    }
+                }
+            }
+
         } else if (nombre.value == "") {
             let error = document.createElement("p");
             error.innerText = ("Por favor ingrese su nombre para continuar");
@@ -26,18 +92,11 @@ function ingresoUsuario() {
     }
 }
 
-
-function ingresoPorDia() {
-    let botonPorDia = document.getElementById('ingresoPorDia');
-    botonPorDia.onclick = () => {
-        let bienvenida = document.getElementById("contenedor");
-        let horarioDia = document.createElement("p");
-        horarioDia.innerText = ("Los dias con turnos disponibles son los siguientes: Lunes, Martes, Miercoles, Jueves y viernes. Indique que dia desea asistir");
-        bienvenida.append(horarioDia);
-        let detalleDia = document.createElement("input");
-        detalleDia.innerHTML = "<input type='text'>";
-        bienvenida.append(detalleDia);
-    }
+function Recuperar() {
+    let recuperarLS = JSON.parse(localStorage.getItem('reserva'))
+    recuperarLS && recuperarLS.map(element => {
+        reserva.push(element)
+    })
 }
-
+Recuperar()
 ingresoUsuario();
