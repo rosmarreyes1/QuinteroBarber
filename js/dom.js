@@ -76,6 +76,18 @@ function ingresoUsuario() {
                             dia,
                             hora
                         }] = horarios
+                        Toastify({
+
+                            text: "Reserva agendada con exito",
+                            duration: 3000,
+
+                            style:{
+                                background: "white",
+                                color: "black",
+                                fontSize: "1rem",
+                            }
+                            
+                            }).showToast();
                         let reservaFinal = document.createElement("p");
                         reservaFinal.innerHTML = (`${nombre.value}, Hemos agendado su reserva, para el dia ${dia} a las ${hora}`);
                         bienvenida.append(reservaFinal);
