@@ -1,32 +1,16 @@
-// array de objetos con horarios disponibles
-let horarios = [{
-        dia: 'lunes',
-        hora: "15:00hs"
-    },
-    {
-        dia: 'martes',
-        hora: "9:00hs"
-    },
-    {
-        dia: 'miercoles',
-        hora: "13:00hs"
-    },
-    {
-        dia: 'jueves',
-        hora: "10:00hs"
-    },
-    {
-        dia: 'viernes',
-        hora: "11:00hs"
-    },
-    {
-        dia: 'sabado',
-        hora: "18:00hs"
-    },
-];
 let reserva = []
+fetchData = async () => {
+    try {
+        const resp = await fetch('../horarios.json')
+        const data = await resp.json()
+        ingresoUsuario(data)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 // ingreso de usuario y bienvenida //
-function ingresoUsuario() {
+function ingresoUsuario(data) {
 
     /* boton de ingreso de nombre */
     let boton = document.getElementById("botonIngresar");
@@ -60,7 +44,7 @@ function ingresoUsuario() {
                 if (inputFiltro.value.toUpperCase() === "DIA") {
                     let parrafoDia = document.createElement("article");
                     parrafoDia.innerHTML = (`
-                    <p>los dias disponibles son: ${horarios.map(el => el.dia)} indique que dia desea asistir</p>
+                    <p>los dias disponibles son: ${data.map(el => el.dia)} indique que dia desea asistir</p>
                     <input type='text' id='inputDia'>
                     <button id='botonFiltradoDia'>Siguiente</button>
                     `);
@@ -69,25 +53,25 @@ function ingresoUsuario() {
                     let botonFiltro = document.getElementById('botonFiltradoDia');
                     botonFiltro.onclick = () => {
                         reserva.push([{
-                            ...horarios.find(elemento => elemento.dia === reservaPorDia.value.toLowerCase()),
+                            ...data.find(elemento => elemento.dia === reservaPorDia.value.toLowerCase()),
                             nombreReserva: nombre.value
                         }])
                         const [{
                             dia,
                             hora
-                        }] = horarios
+                        }] = data
                         Toastify({
 
                             text: "Reserva agendada con exito",
                             duration: 3000,
 
-                            style:{
+                            style: {
                                 background: "white",
                                 color: "black",
                                 fontSize: "1rem",
                             }
-                            
-                            }).showToast();
+
+                        }).showToast();
                         let reservaFinal = document.createElement("p");
                         reservaFinal.innerHTML = (`${nombre.value}, Hemos agendado su reserva, para el dia ${dia} a las ${hora}`);
                         bienvenida.append(reservaFinal);
@@ -112,3 +96,4 @@ function Recuperar() {
 }
 Recuperar()
 ingresoUsuario();
+fetchData();
