@@ -22,8 +22,6 @@ function ingresoUsuario(data) {
 
         /* restriccion para que no pueda avanzar sin colocar su nombre */
         if (nombre.value !== "") {
-            console.log(nombre.value);
-
             /* bienvenida de usuario */
             let parrafo = document.createElement("p");
             parrafo.innerText = (`Bienvenido/a a la seccion de Reservas de Quintero Barber,  ${nombre.value}`);
@@ -40,8 +38,7 @@ function ingresoUsuario(data) {
             let botonSiguiente = document.getElementById("botonFiltrado");
             let filtro = document.getElementById('inputFiltro');
             botonSiguiente.onclick = () => {
-                console.log(filtro.value)
-                if (inputFiltro.value.toUpperCase() === "DIA") {
+                if (filtro.value.toUpperCase() === "DIA") {
                     let parrafoDia = document.createElement("article");
                     parrafoDia.innerHTML = (`
                     <p>los dias disponibles son: ${data.map(el => el.dia)} indique que dia desea asistir</p>
