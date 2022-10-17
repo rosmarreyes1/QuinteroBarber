@@ -1,15 +1,13 @@
 .mainGaleria{
     @include flexBase(column);
     @include FlexAlineacion;
+    color: $colorLetraPrincipal;
     h1{
         width: 80%;
     }
     .galeria{
-        article{
-            padding: 1rem;
-            img{
-                width: 80%;
-            }
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
         }
-    }
 }

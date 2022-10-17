@@ -1,0 +1,33 @@
+.mainNosotros{
+    color: $colorLetraPrincipal;
+    text-align: center;
+    background-image: url("../multimedia/fondo.jpg");
+    background-attachment: fixed;
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    .sectionNosotros {
+        display: flex;
+        flex-direction: column;
+        color: $colorLetraPrincipal;
+        padding: 3rem;
+        gap: 1rem;
+        text-align: justify;
+        .imgNosotros{
+            img{
+                width: 350px;
+                height: 450px;
+                border-radius: 3%;
+            }
+        }
+        .resena{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            h2 {
+                text-align: center;
+            }
+        }
+    }
+}

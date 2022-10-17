@@ -1,31 +1,139 @@
 /* desktop */
 @include responsive(desktop) {
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        .logo {
+            display: none;
+        }
+
+        .menu {
+            ul {
+                display: flex;
+                justify-content: center;
+                margin-top: 0;
+                .logoMenu{
+                    display: initial;
+                    img {
+                        width: 300px;
+                        height: 300px;
+                    }
+                }
+                li{
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+    }
+
+    /*inicio*/
+    .mainInicio {
+
+        /*seccion principal de inicio */
+        .principal {
+            height: 90vh;
+
+            h1 {
+                font-size: 5.6rem;
+
+                img {
+                    height: 150px;
+                    width: 80px;
+                }
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            .sectionEstrellas {
+                .estrellas {
+                    height: 40px;
+                    width: 40px;
+                }
+            }
+        }
+
+        /* seccion de reserva desktop */
+        .reserva {
+            display: flex;
+            flex-direction: row;
+            height: 150px;
+            padding: 2rem;
+        }
+
+        /* seccion de galeria desktop */
+        .galeria {
+            .galeriaPrincipal {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 3rem;
+
+                .carousel {
+                    display: flex;
+                    justify-content: center;
+
+                    .carouselDivGaleria {
+                        width: 350px;
+                        height: 300px;
+                    }
+                }
+            }
+        }
+    }
+
+
     /*productos */
-    .mainProductos{
-        h1{
+    .mainProductos {
+        h1 {
             width: 100%;
         }
-        .galeriaProductos{
+
+        .galeriaProductos {
             @include flexBase(row);
-            article{
-                img{
+
+            article {
+                img {
                     width: 100%;
                 }
             }
         }
     }
+
     /*galeria */
-    .mainGaleria{
-        h1{
+    .mainGaleria {
+        h1 {
             width: 100%;
         }
-        .galeria{
+
+        .galeria {
             @include flexBase(row);
-            article{
-                img{
+
+            article {
+                img {
                     width: 100%;
                 }
             }
         }
     }
+
+    /*nosotros */
+    .mainNosotros {
+        .sectionNosotros {
+            display: flex;
+            flex-direction: row;
+
+            .resena {
+                h2 {
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+
 }

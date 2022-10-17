@@ -1,0 +1,19 @@
+[{
+        "id": "1",
+        "nombre": "Cera",
+        "precio": "950",
+        "img": "../multimedia/cera.jpeg"
+    },
+    {
+        "id": "2",
+        "nombre": "Gelatina",
+        "precio": "800",
+        "img": "'../multimedia/gel.jpeg'"
+    },
+    {
+        "id": "3",
+        "nombre": "Polvo Fijador",
+        "precio": "700",
+        "img": "../multimedia/polvo.jpeg"
+    }
+]

@@ -7,3 +7,23 @@
     justify-content: center;
     align-items: center;
 }
+
+@mixin sombraLetras ($colorBienvenida) {
+    text-shadow: 2.5px 0px 0px $colorBienvenida,
+                0px 2.5px 0px $colorBienvenida,
+                -2.5px 0px 0px $colorBienvenida,
+                0px -2.5px 0px $colorBienvenida;
+}
+
+@mixin sombraLetrasFinas ($colorBienvenidaFina) {
+    text-shadow: 1px 0px 0px $colorBienvenidaFina,
+                0px 1px 0px $colorBienvenidaFina,
+                -1px 0px 0px $colorBienvenidaFina,
+                0px -1px 0px $colorBienvenidaFina;
+}
+
+@mixin bordeImagenes {
+    border: 6px solid;
+    border-color: $bgReserva;
+    border-style: double;
+}

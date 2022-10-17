@@ -1,9 +1,13 @@
 header {
     grid-area: header;
     display: flex;
-    flex-direction: row;
-
+    flex-direction: column;
+    background-color: $bgHeader;
+    font-family: $font-secundaria;
+    
     .logo {
+        text-align: center;
+        
         a {
             img {
                 height: 300px;
@@ -11,17 +15,11 @@ header {
             }
         }
     }
-
+    
     .menu {
-        .container-fluid {
-            .collapse {
-                .navbar-nav {
-                    .nav-item {
-                        a {
-                            color: $colorLetra;
-                        }
-                    }
-                }
+        ul{
+            .logoMenu{
+                display: none;
             }
         }
     }

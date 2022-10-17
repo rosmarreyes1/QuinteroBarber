@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="barberia, barber, corte de cabello, caballero">
-    <meta name="description"
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="barberia, barber, corte de cabello, caballero">
+        <meta name="description"
         content="Deja tu cabello siempre en manos profesionales, en quintero barber siempre conseguiras el mejor estilo para ti, al igual que los mejores productos para el cuidado de tu cabello ">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="shortcut icon" href="../multimedia/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../estilos/main.css">
-    <title>Productos Quintero Barber</title>
-</head>
-<body>
-    <header>
-        <div class="logo">
-            <a href="../index.html"> <img src="../multimedia/logo.png" alt="logo quintero barber"></a>
-        </div>
-        <nav class="menu navbar navbar-expand-md navbar-dark">
-            <div class="container-fluid">
+        
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+        <link rel="shortcut icon" href="../multimedia/logo.png" type="image/x-icon">
+        <link rel="stylesheet" href="../estilos/main.css">
+        <title>Productos Quintero Barber</title>
+    </head>
+    
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../index.html"> <img src="../multimedia/logo.png" alt="logo quintero barber"></a>
+            </div>
+            <nav class="menu navbar navbar-expand-md navbar-dark">
+                <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -33,6 +38,9 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="./productos.html">PRODUCTOS</a>
                         </li>
+                        <div class="logoMenu">
+                            <a href="../index.html"> <img src="../multimedia/logo.png" alt="logo quintero barber"></a>
+                        </div>
                         <li class="nav-item">
                             <a class="nav-link active" href="./galeria.html">GALERIA</a>
                         </li>
@@ -45,22 +53,57 @@
         </nav>
     </header>
     <main class="mainProductos">
-        <div>
-            <h1>Productos Quintero Barber</h1>
+        <div class="ms-auto sticky-top bd-highlight">
+            <button type="button" class="btn btnCarrito ms-auto d-flex m-2" data-bs-toggle="modal"
+            data-bs-target="#exampleModal" id="boton-carrito">
+            <img src="../multimedia/carrito.svg" alt="Carrito de compras" id="carrito">
+            <span id="contadorCarrito"> 0 </span>
+        </button>
+    </div>
+</section>
+
+<section class="container-fluid justify-content-center d-flex flex-wrap" id="stock">
+    <template id="productCard">
+        <div class="card m-2" style="width: 18rem;">
+            <img src="" class="card-img-top" alt="...">
+            <div class="card-body">
+                <button class="agregarCarrito d-flex ms-auto" id="">
+                    <img src="../multimedia/ingresocarrito.svg" alt="Carrito de compras">
+                </button>
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+                <p id="precio">Precio: $</p>
+            </div>
         </div>
-    <section class="galeriaProductos">
-        <article><img src="../multimedia/cera.jpeg" alt="cera para cabello"></article>
-        <article><img src="../multimedia/gel.jpeg" alt="gel de peinar"></article>
-        <article><img src="../multimedia/polvo.jpeg" alt="polvo fijador de cabello"></article>
-    </section>
-    </main>
-    <footer>
+    </template>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="carritoModal">
+                
+            </div>
+            <div class="modal-footer">
+                <p class="precioProducto">Precio total: AR$<span id="precioTotal">0</span></p>
+                <button type="button" class="btn btn-primary btnSweet">Comprar</button>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+<footer>
         <footer>
             <div class="footerContainer">
                 <div class="facebook">
                     <img src="../multimedia/facebook.png" alt="facebook">
                 </div>
-
+                
                 <div class="instagram">
                     <img src="../multimedia/instagram.png" alt="instagram">
                 </div>
@@ -72,12 +115,15 @@
             </div>
         </footer>
     </footer>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
     </script>
-    <!-- <script src="../js/funciones.js"></script> -->
+    <script src="../js/productos.js"></script>
 </body>
+
 </html>
