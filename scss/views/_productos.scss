@@ -4,12 +4,30 @@
     h1{
         width: 80%;
     }
-    .galeriaProductos{
-        article{
-            padding: 1rem;
-            img{
-                width: 80%;
-            }
+    .ms-auto {
+        display: flex;
+        justify-content: center;
+        margin-right: 5%;
+        .btnCarrito{
+                display: flex;
+                justify-content: center;
+                gap: 0.5rem;
+                color: $colorLetra;
+                background-color: $bgReserva;
+                font-size: 1rem;
         }
+    }
+
+    .productos{
+            .imagenProducto{
+
+                display: flex;
+                justify-content: center;
+                padding: 0.5rem;
+                .card-img-top{
+                    width: 280px;
+                    height: 350px;
+                }
+            }
     }
 }

@@ -142,10 +142,24 @@ footer {
   align-items: center; }
   .mainProductos h1 {
     width: 80%; }
-  .mainProductos .galeriaProductos article {
-    padding: 1rem; }
-    .mainProductos .galeriaProductos article img {
-      width: 80%; }
+  .mainProductos .ms-auto {
+    display: flex;
+    justify-content: center;
+    margin-right: 5%; }
+    .mainProductos .ms-auto .btnCarrito {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      color: black;
+      background-color: #b28405;
+      font-size: 1rem; }
+  .mainProductos .productos .imagenProducto {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem; }
+    .mainProductos .productos .imagenProducto .card-img-top {
+      width: 280px;
+      height: 350px; }
 
 .mainNosotros {
   color: white;
@@ -173,6 +187,9 @@ footer {
       width: 100%; }
       .mainNosotros .sectionNosotros .resena h2 {
         text-align: center; }
+
+.mainCarrito {
+  color: white; }
 
 /*tablet */
 /* desktop */

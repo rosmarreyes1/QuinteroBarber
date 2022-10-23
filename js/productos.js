@@ -6,7 +6,7 @@ const contenedorCarrito = document.getElementById('carritoModal');
 const contadorCarrito = document.getElementById('contadorCarrito');
 const precioTotal = document.getElementById('precioTotal');
 
-fetchData = async () => {
+const fetchData = async () => {
     try {
         const resp = await fetch('../json/productos.json')
         const data = await resp.json()
@@ -16,7 +16,7 @@ fetchData = async () => {
     }
 }
 
-Productos = (data) => {
+const Productos = (data) => {
     stock.innerHTML = '';
     data.forEach(element => {
         let {
@@ -30,7 +30,9 @@ Productos = (data) => {
         article.innerHTML += `
         
         <div class="card m-2" style="width: 18rem;">
+        <div class="imagenProducto">
         <img src=${img} class="card-img-top" alt="...">
+        </div>
         <div class="card-body">
         <button class="agregarCarrito d-flex ms-auto" id=agregar${id}>
         <img src="../multimedia/ingresocarrito.svg" alt="Carrito de compras">
@@ -55,7 +57,7 @@ Productos = (data) => {
 
     });
 }
-Carrito = (id) => {
+const Carrito = (id) => {
     let agregarUnidad = carritoDeCompras.find(element => element.id == id)
     if (agregarUnidad) {
         agregarUnidad.cantidad = agregarUnidad.cantidad + 1;
@@ -77,7 +79,7 @@ Carrito = (id) => {
     };
 }
 
-mostrarCarrito = (carritoFinal) => {
+const mostrarCarrito = (carritoFinal) => {
     let div = document.createElement('div')
     div.className = 'muestraCarrito';
     div.innerHTML = `
@@ -111,12 +113,12 @@ mostrarCarrito = (carritoFinal) => {
     })
 }
 
-actualizarCarrito = () => {
+const actualizarCarrito = () => {
     contadorCarrito.innerText = carritoDeCompras.reduce((agg, el) => agg + el.cantidad, 0);
     precioTotal.innerText = carritoDeCompras.reduce((agg, el) => agg + (el.precio * el.cantidad), 0);
 }
 
-recuperar = () => {
+const recuperar = () => {
     let recuperarLocalStorage = JSON.parse(localStorage.getItem('carrito'));
     if (recuperarLocalStorage) {
         recuperarLocalStorage.forEach(element => {
@@ -127,7 +129,7 @@ recuperar = () => {
     }
 }
 
-FinalizarCompra = () => {
+const FinalizarCompra = () => {
     document.querySelector('.btnSweet').addEventListener('click', () => 
         Swal.fire({
             title: 'Estás seguro que finalizaste tu compra?',

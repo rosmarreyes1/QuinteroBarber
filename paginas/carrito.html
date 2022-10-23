@@ -24,31 +24,34 @@
         </div>
         <nav class="menu navbar navbar-expand-md navbar-dark">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mb-2 mb-md-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="../index.html">INICIO</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="./productos.html">PRODUCTOS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="./galeria.html">GALERIA</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="./nosotros.html">NOSOTROS</a>
-                        </li>
-                    </ul>
-                </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../index.html">INICIO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./productos.html">PRODUCTOS</a>
+                    </li>
+                    <div class="logoMenu">
+                        <a href="../index.html"> <img src="../multimedia/logo.png" alt="logo quintero barber"></a>
+                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./galeria.html">GALERIA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./nosotros.html">NOSOTROS</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    </header>
-    <main class="container-fluid">
+        </div>
+    </nav>
+</header>
+    <main class="container-fluid mainCarrito" >
         <div class="container-fluid">
             <h2 class="d-flex justify-content-star m-2">Formulario de compras</h2>
         </div>
@@ -73,7 +76,7 @@
             </div>
             <div class="col-md-6">
                 <label for="inputCity" class="form-label">Comuna</label>
-                <input type="text" class="form-control" id="inputCity">
+                <input type="text" class="form-control" id="inputCity" placeholder="comuna X">
             </div>
             <div class="col-md-4">
                 <label for="inputState" class="form-label">Ciudad</label>
@@ -91,7 +94,7 @@
             <div class="col-12">
             </div>
             <div class="col-12 mb-5">
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="button" class="btn btn-primary" id="formularioCompra">Enviar</button>
             </div>
         </form>
     </main>
@@ -113,12 +116,14 @@
             </div>
         </footer>
     </footer>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
     </script>
+    <script src="../js/fomularioCompra.js"></script>
 </body>
 
 </html>
